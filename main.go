@@ -29,10 +29,7 @@ func main() {
 	e.HideBanner = true
 
 	// Bind middleware
-	e.Pre(middleware.RemoveTrailingSlashWithConfig(
-		middleware.TrailingSlashConfig{
-			RedirectCode: http.StatusPermanentRedirect,
-		}))
+	e.Pre(middleware.RemoveTrailingSlashWithConfig())
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 	e.Pre(middleware.Secure())
